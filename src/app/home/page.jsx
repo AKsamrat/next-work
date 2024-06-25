@@ -4,18 +4,19 @@ import Education from '@/component/Education';
 import Heros from '@/component/Heros';
 import Projects from '@/component/Projects';
 import Skill from '@/component/Skill';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from 'react';
 
-export default function Home() {
+const page = () => {
   return (
-    <main className=" min-h-screen ">
+    <div>
       <Heros></Heros>
       <AboutMe></AboutMe>
       <Skill></Skill>
       <Projects></Projects>
       <Education></Education>
       <Contact></Contact>
-    </main>
+    </div>
   );
-}
+};
+
+export default page;
