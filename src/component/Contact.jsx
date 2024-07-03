@@ -122,7 +122,7 @@ const Contact = () => {
                 </label>
               </Slide>
               <Slide duration={1000} direction="right" delay={1200}>
-                <button className=" bg-[#F86F03] px-2 py-2 rounded-2xl font-semibold text-xl ">
+                <button className=" bg-[#F86F03] px-2 py-2 rounded-2xl font-semibold text-xl w-full ">
                   {' '}
                   Submit
                 </button>
