@@ -6,8 +6,30 @@ import { BsTwitterX } from 'react-icons/bs';
 import { CiFacebook } from 'react-icons/ci';
 import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
+import Footers from './Footers';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = e => {
+    e.preventDefault();
+    alert(' message sent');
+    emailjs
+      .sendForm('service_irjd2nu', 'template_k9wju6v', form.current, {
+        publicKey: 'wtgRI5Kf-GuS-l7hq',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        error => {
+          console.log('FAILED...', error.text);
+        }
+      );
+  };
+
   return (
     <div id="contact" className="exo-2 bg-[#170550]">
       <div className=" max-w-7xl mx-auto  py-16">
@@ -88,6 +110,8 @@ const Contact = () => {
               </div>
             </div>
             <form
+              ref={form}
+              onSubmit={sendEmail}
               noValidate=""
               className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
             >
@@ -95,6 +119,7 @@ const Contact = () => {
                 <label className="block">
                   <span className="mb-1 text-[18px]">Full name</span>
                   <input
+                    name="from_name"
                     type="text"
                     placeholder="Leroy Jenkins"
                     className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 bg-[#43366A] py-3 pl-2"
@@ -105,6 +130,7 @@ const Contact = () => {
                 <label className="block">
                   <span className="mb-1 text-[18px]">Email address</span>
                   <input
+                    name="from_email"
                     type="email"
                     placeholder="leroy@jenkins.com"
                     className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 py-3 pl-2 bg-[#43366A]"
@@ -116,13 +142,17 @@ const Contact = () => {
                 <label className="block">
                   <span className="mb-1 text-[18px]">Message</span>
                   <textarea
+                    name="message"
                     rows="6"
                     className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 py-3 pl-2 bg-[#43366A]"
                   ></textarea>
                 </label>
               </Slide>
               <Slide duration={1000} direction="right" delay={1200}>
-                <button className=" bg-[#F86F03] px-2 py-2 rounded-2xl font-semibold text-xl w-full ">
+                <button
+                  type="submit"
+                  className=" bg-[#F86F03] px-2 py-2 rounded-2xl font-semibold text-xl w-full "
+                >
                   {' '}
                   Submit
                 </button>
@@ -131,9 +161,7 @@ const Contact = () => {
           </div>
         </section>
       </div>
-      <div className="py-6 text-sm text-center bg-[#31065A]">
-        © 2024. All rights reserved by Anuwarul Kabir.
-      </div>
+      <Footers></Footers>
     </div>
   );
 };

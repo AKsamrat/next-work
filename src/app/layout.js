@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/component/Navbar';
+import emailjs from '@emailjs/browser';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <Navbar></Navbar>
 
         <div>{children}</div>
+
       </body>
     </html>
   );

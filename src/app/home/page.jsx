@@ -1,6 +1,7 @@
 import AboutMe from '@/component/AboutMe';
 import Contact from '@/component/Contact';
 import Education from '@/component/Education';
+import Footers from '@/component/Footers';
 import Heros from '@/component/Heros';
 import Projects from '@/component/Projects';
 import Skill from '@/component/Skill';
