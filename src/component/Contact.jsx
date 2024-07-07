@@ -1,4 +1,6 @@
 'use client';
+import { useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import React from 'react';
 import { Fade, Slide } from 'react-awesome-reveal';
 import { Roll } from 'react-awesome-reveal';
@@ -8,16 +10,15 @@ import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
 import Footers from './Footers';
 import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const form = useRef();
 
   const sendEmail = e => {
     e.preventDefault();
-    alert(' message sent');
+    // alert(' message sent');
     emailjs
-      .sendForm('service_irjd2nu', 'template_k9wju6v', form.current, {
+      .sendForm('service_irjd2nu', 'template_ke6qytf', form.current, {
         publicKey: 'wtgRI5Kf-GuS-l7hq',
       })
       .then(
@@ -119,7 +120,7 @@ const Contact = () => {
                 <label className="block">
                   <span className="mb-1 text-[18px]">Full name</span>
                   <input
-                    name="from_name"
+                    name="user_name"
                     type="text"
                     placeholder="Leroy Jenkins"
                     className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 bg-[#43366A] py-3 pl-2"
@@ -130,7 +131,7 @@ const Contact = () => {
                 <label className="block">
                   <span className="mb-1 text-[18px]">Email address</span>
                   <input
-                    name="from_email"
+                    name="user_email"
                     type="email"
                     placeholder="leroy@jenkins.com"
                     className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 py-3 pl-2 bg-[#43366A]"
