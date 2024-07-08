@@ -10,6 +10,7 @@ import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { VscGithub } from 'react-icons/vsc';
 import Footers from './Footers';
 import { useRef } from 'react';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
   const form = useRef();
@@ -24,6 +25,7 @@ const Contact = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          toast('Your massage has been Sent');
         },
         error => {
           console.log('FAILED...', error.text);
